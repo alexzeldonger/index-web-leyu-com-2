@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>leyu · 轻量导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e1e2a;
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* ---- 顶部导航 ---- */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid #e0e2e6;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .top-nav .brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #2b2d3a;
+        }
+
+        .top-nav .brand span {
+            color: #5865d0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #353746;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #5865d0;
+        }
+
+        /* ---- Hero / 引导区 ---- */
+        .hero {
+            padding: 48px 0 36px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #1f2230;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-size: 1.05rem;
+            color: #3d3f4e;
+        }
+
+        .hero .highlight-link {
+            background: #ffffff;
+            display: inline-block;
+            padding: 10px 28px;
+            border-radius: 40px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #d6d8e0;
+            font-weight: 500;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .hero .highlight-link a {
+            color: #2d314a;
+            text-decoration: none;
+        }
+
+        .hero .highlight-link:hover {
+            background: #f0f2f9;
+            border-color: #b4b9cf;
+        }
+
+        /* ---- 卡片分区通用 ---- */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 42px 0 18px;
+            color: #232638;
+            padding-left: 2px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px 26px;
+            border: 1px solid #e4e6ec;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.02);
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.02);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1d2030;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #404358;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            background: #edf0f7;
+            padding: 3px 12px;
+            border-radius: 30px;
+            color: #2f3555;
+        }
+
+        /* ---- 常见说明区域 (FAQ摘要) ---- */
+        .faq-section {
+            margin: 50px 0 36px;
+            background: #ffffff;
+            padding: 28px 28px 30px;
+            border-radius: 20px;
+            border: 1px solid #e3e5ed;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-section h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+            color: #1b1e2e;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #eaecf2;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #282d44;
+            margin-bottom: 4px;
+        }
+
+        .faq-item p {
+            color: #404358;
+            font-size: 0.95rem;
+        }
+
+        /* ---- 底部 ---- */
+        .footer-note {
+            text-align: center;
+            color: #6f738b;
+            font-size: 0.85rem;
+            padding: 30px 0 20px;
+            border-top: 1px solid #e0e2e8;
+            margin-top: 40px;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 600px) {
+            body { padding: 14px; }
+            .hero h1 { font-size: 1.7rem; }
+            .top-nav { flex-direction: column; align-items: flex-start; }
+            .nav-links { gap: 16px; }
+            .faq-section { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="brand">✦ <span>leyu</span> · 导航</div>
+        <div class="nav-links">
+            <a href="#intro">简介</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- Hero 区域：强调再次访问与收藏 -->
+    <div class="hero" id="intro">
+        <h1>再次访问，继续关注</h1>
+        <p>
+            无论你何时回来，这里都保持着清晰的结构和稳定的内容。
+            如果你觉得有用，不妨将 <a href="https://index-web-leyu.com" style="color: #3f4a9e; text-decoration: underline; text-underline-offset: 3px;">leyu</a>
+            加入浏览器收藏夹，方便日后直接打开。
+        </p>
+        <div class="highlight-link">
+            <a href="https://index-web-leyu.com">leyu</a> · 收藏入口
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="scenes">常见使用场景</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📇 快速定位</h3>
+            <p>回到熟悉的页面，不需要重新搜索或翻找记录。直接通过收藏夹或导航链接就能抵达 <a href="https://index-web-leyu.com" style="color: #3f4a9e; text-decoration: underline; text-underline-offset: 2px;">leyu</a>，节省每次查找时间。</p>
+            <span class="tag">日常复用</span>
+        </div>
+        <div class="card">
+            <h3>📎 信息回顾</h3>
+            <p>隔一段时间再回来查看，内容布局和访问方式保持一致。无需重新适应，尤其适合需要反复参考、对照的场景。</p>
+            <span class="tag">持续关注</span>
+        </div>
+        <div class="card">
+            <h3>🔖 轻量收藏</h3>
+            <p>将关键页面固定到浏览器书签栏或起始页，每次打开就是熟悉的界面。推荐把 <a href="https://index-web-leyu.com" style="color: #3f4a9e; text-decoration: underline; text-underline-offset: 2px;">leyu</a> 放在显眼位置，便于随时回来。</p>
+            <span class="tag">收藏习惯</span>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ摘要） -->
+    <div class="faq-section" id="faq">
+        <h2>❓ 常见说明 · 摘要</h2>
+        <div class="faq-item">
+            <strong>为什么建议收藏这个页面？</strong>
+            <p>对于需要频繁返回的站点，收藏可以免去每次输入或搜索的步骤。<a href="https://index-web-leyu.com" style="color: #3f4a9e; text-decoration: underline; text-underline-offset: 2px;">leyu</a> 的地址简单，收藏后一键直达。</p>
+        </div>
+        <div class="faq-item">
+            <strong>页面内容会频繁变化吗？</strong>
+            <p>不会。本页作为稳定的介绍与导航入口，结构保持清晰一致。后续可能补充少量说明，但核心访问方式保持不变。</p>
+        </div>
+        <div class="faq-item">
+            <strong>适合哪些人使用？</strong>
+            <p>任何希望保留一个干净、轻量的返回路径的用户。无论是个人整理、工作参考，还是日常浏览，都可以把这里当作一个固定的起点。</p>
+        </div>
+        <div class="faq-item">
+            <strong>可以直接通过链接访问吗？</strong>
+            <p>当然。直接点击 <a href="https://index-web-leyu.com" style="color: #3f4a9e; text-decoration: underline; text-underline-offset: 2px;">leyu</a> 即可打开，无需额外操作。你也可以右键复制链接，分享给有需要的人。</p>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>leyu · 轻量导航介绍页 &mdash; 保持简洁，方便再次回来。</span>
+    </div>
+</div>
+</body>
+</html>

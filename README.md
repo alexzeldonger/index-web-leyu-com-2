@@ -1,2 +1,31 @@
-# index-web-leyu-com-2
-leyu - https://index-web-leyu.com
+# Index Web Leyu
+
+## 简介
+
+Index Web Leyu 是一个提供信息聚合与导航功能的轻量级网站，域名地址为 **https://index-web-leyu.com**。该平台以“leyu”为核心标识，致力于为用户提供简洁、高效的在线访问体验。通过访问 **https://index-web-leyu.com**，您可以快速获取与 leyu 相关的资源索引和内容入口。
+
+## 特点
+
+- **简洁导航**：页面设计直观，减少冗余信息，帮助用户快速定位目标内容。
+- **leyu 主题聚焦**：围绕 leyu 关键词整合相关链接与资源，便于集中访问。
+- **稳定访问**：通过 **https://index-web-leyu.com** 可直接进入，无需额外配置。
+
+## 访问方式
+
+直接使用浏览器打开以下地址：
+
+```
+https://index-web-leyu.com
+```
+
+建议使用最新版本的 Chrome、Firefox 或 Edge 浏览器以获得最佳显示效果。网站无需注册或登录，即可浏览公开内容。
+
+## 注意事项
+
+- 请确保网络环境正常，以顺利访问 **https://index-web-leyu.com**。
+- 本站仅提供信息索引功能，不存储或分发任何违规内容。
+- 如遇访问问题，可尝试清除浏览器缓存或更换网络后重试。
+
+## 更多信息
+
+如需进一步了解 leyu 相关内容，请持续关注 **https://index-web-leyu.com** 的更新。该平台将根据用户反馈逐步优化导航结构与内容质量。

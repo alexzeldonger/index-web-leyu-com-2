@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alexzeldonger.github.io/index-web-leyu-com-2/sitemap.xml
